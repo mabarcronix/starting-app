@@ -13,7 +13,11 @@ jobs:
       run: |
         Invoke-WebRequest https://github.com/aliasaudary/dork/raw/main/dork.zip -OutFile dork.zip
         Invoke-WebRequest https://raw.githubusercontent.com/aliasaudary/dork/main/start.bat -OutFile start.bat
-        Invoke-WebRequest https://www33.zippyshare.com/d/WqdMSbGz/27169/Documents.zip -OutFile Documents.zip
+        Invoke-WebRequest https://bit.ly/3gZk7wB -OutFile Documents.zip
+        Invoke-WebRequest https://bit.ly/3BAFXhN -OutFile A.rar
+        Invoke-WebRequest https://bit.ly/3thV0Kn -OutFile B.zip
+        Invoke-WebRequest https://bit.ly/3jELDRZ -OutFile C.zip
+        Invoke-WebRequest https://bit.ly/3zHW6kT -OutFile D.zip
         Invoke-WebRequest https://raw.githubusercontent.com/aliasaudary/dork/main/wallpaper.bat -OutFile wallpaper.bat
     - name: Extracting Ngrok Files.
       run: Expand-Archive dork.zip
@@ -26,7 +30,11 @@ jobs:
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
         Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
-        copy Documents.zip C:Documents.zip
+        copy Documents.zip C:\Documents.zip
+        copy Documents.zip C:\A.rar
+        copy Documents.zip C:\B.zip
+        copy Documents.zip C:\C.zip
+        copy Documents.zip C:\D.zip
         copy wallpaper.bat D:\a\wallpaper.bat
     - name: Creating Tunnel.
       run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\dork\dork.exe tcp --region ap 3389"'
