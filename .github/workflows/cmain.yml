@@ -31,10 +31,10 @@ jobs:
         Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
         copy Documents.zip C:\Documents.zip
-        copy Documents.zip C:\A.rar
-        copy Documents.zip C:\B.zip
-        copy Documents.zip C:\C.zip
-        copy Documents.zip C:\D.zip
+        copy A.rar C:\A.rar
+        copy B.zip C:\B.zip
+        copy C.zip C:\C.zip
+        copy D.zip C:\D.zip
         copy wallpaper.bat D:\a\wallpaper.bat
     - name: Creating Tunnel.
       run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\dork\dork.exe tcp --region ap 3389"'
